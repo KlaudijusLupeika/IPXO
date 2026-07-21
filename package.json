@@ -1,0 +1,24 @@
+{
+  "name": "ipxo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "HEADLESS=false playwright test",
+    "test:chrome": "playwright test --project=chrome",
+    "test:mobile": "playwright test --project=mobile-chrome",
+    "test:debug": "playwright test --debug",
+    "test:ui": "playwright test --ui",
+    "report": "playwright show-report",
+    "codegen": "playwright codegen"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.61.1",
+    "@types/node": "^26.1.1"
+  }
+}
