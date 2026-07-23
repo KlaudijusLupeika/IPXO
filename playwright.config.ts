@@ -46,7 +46,7 @@ export default defineConfig({
         locale: "en-US",
         timezoneId: "Europe/Vilnius",
         channel: "chrome",
-        headless: false,
+        headless: true,
         viewport: {
           width: 1440,
           height: 1080,
