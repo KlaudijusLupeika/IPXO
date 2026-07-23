@@ -14,12 +14,17 @@ export class BasePage {
       await this.acceptCookiesButton.waitFor({ state: "visible", timeout: 10_000 });
       await this.acceptCookiesButton.click();
       console.log("Cookies accepted");
-    } catch (e) {
-        console.log("Cookies overlay not present");
+    } catch {
+      console.log("Cookies overlay not present");
     }
   }
 
   async waitForPageLoaded() {
-    await this.page.waitForLoadState("networkidle");
+    await this.page.waitForLoadState("domcontentloaded");
+  }
+
+  async goBack() {
+    await this.page.goBack();
+    await this.waitForPageLoaded();
   }
 }

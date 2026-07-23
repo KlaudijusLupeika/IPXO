@@ -1,6 +1,5 @@
 import { defineConfig } from "@playwright/test";
 import dotenv from "dotenv";
-import path from "path";
 
 dotenv.config();
 
@@ -19,7 +18,7 @@ export default defineConfig({
     ["html", { open: "never" }],
   ],
   use: {
-    baseURL: process.env.BASE_URL,
+    baseURL: "https://ipxo.com",
     trace: "retain-on-failure",
     screenshot: "only-on-failure",
     video: "retain-on-failure",
