@@ -23,4 +23,12 @@ export class IpLookupResultsPage extends BasePage {
   async openMaintainedByPage() {
     await this.maintainedByLink.click();
   }
+
+  async isManagedByVisible() {
+    return await this.managedByLink.isVisible();
+  }
+
+  async isMaintainedByVisible() {
+    return await this.maintainedByLink.isVisible();
+  }
 }

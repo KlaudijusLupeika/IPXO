@@ -1,5 +1,6 @@
-import { defineConfig, devices } from "@playwright/test";
+import { defineConfig } from "@playwright/test";
 import dotenv from "dotenv";
+import path from "path";
 
 dotenv.config();
 
@@ -19,28 +20,48 @@ export default defineConfig({
   ],
   use: {
     baseURL: process.env.BASE_URL,
-    actionTimeout: 10000,
-    navigationTimeout: 30000,
     trace: "retain-on-failure",
     screenshot: "only-on-failure",
     video: "retain-on-failure",
+    headless: false,
+    viewport: {
+      width: 1440,
+      height: 1080,
+    },
+    userAgent:
+      'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+    launchOptions: {
+      args: [
+        '--disable-blink-features=AutomationControlled',
+        '--disable-dev-shm-usage',
+        '--no-sandbox',
+        '--disable-setuid-sandbox',
+      ],
+    },
   },
+  
   projects: [
     {
       name: "chrome",
       use: {
-        ...devices["Desktop Chrome"],
+        locale: "en-US",
+        timezoneId: "Europe/Vilnius",
+        channel: "chrome",
+        headless: false,
         viewport: {
-          width: 1920,
+          width: 1440,
           height: 1080,
         },
       },
     },
-    {
-      name: "mobile-chrome",
-      use: {
-        ...devices["Pixel 7"],
-      },
-    },
+
+    //For mobile run uncomment
+
+    // {
+    //   name: "mobile-chrome",
+    //   use: {
+    //     ...devices["Pixel 7"],
+    //   },
+    // },
   ],
 });

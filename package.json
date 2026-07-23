@@ -5,10 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "playwright test",
-    "test:headed": "HEADLESS=false playwright test",
     "test:chrome": "playwright test --project=chrome",
     "test:mobile": "playwright test --project=mobile-chrome",
-    "test:debug": "playwright test --debug",
     "test:ui": "playwright test --ui",
     "report": "playwright show-report",
     "codegen": "playwright codegen"
@@ -20,5 +18,8 @@
   "devDependencies": {
     "@playwright/test": "^1.61.1",
     "@types/node": "^26.1.1"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2"
   }
 }
